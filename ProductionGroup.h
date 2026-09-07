@@ -7,6 +7,7 @@
 #include <iostream>
 
 class FullTraversalIterator; //Added foward declare for Iterator
+class StateIterator;
 
 class ProductionGroup : public ProductionComponent
 {
@@ -14,6 +15,7 @@ private:
   std::vector<ProductionComponent *> children;
 
   friend class FullTraversalIterator; //Friend class declaration for concreteIterator
+  friend class StateIterator; 
 
 public:
   ProductionGroup(const std::string &name) : ProductionComponent(name) {}
@@ -68,6 +70,21 @@ public:
   }
 
   Iterator *createIterator() override; //method to call FullTraversalIterator
+  Iterator *createIterator(const std::string &state) override; 
+
+  std::string getProgress() const override { // Added since it requires implementing for overriding
+    if (children.empty()) {
+        return "Empty";
+    }
+
+    std::string firstState = children.front()->getProgress();
+    for (const auto &child : children) {
+        if (child->getProgress() != firstState) {
+            return "Mixed";
+        }
+    }
+    return firstState;
+}
 
   ~ProductionGroup()
   {

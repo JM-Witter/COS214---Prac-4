@@ -56,7 +56,7 @@ public:
   	}
   }
   
-  std::string getProgress() const {
+  std::string getProgress() const override { // Added override for iterator class to reach it
   	if (state) {
   		return state->getState();
   	} else {

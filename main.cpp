@@ -5,6 +5,7 @@
 #include "ProductionGroup.h"
 #include "Iterator.h"
 #include "FullTraversalIterator.h"
+#include "StateIterator.h"
 #include "AvailableDecorator.h"
 #include "PlatformDecorator.h"
 #include "TheatricalDecorator.h"
@@ -84,6 +85,19 @@ int main()
     }
     std::cout << std::endl;
     delete it;
+
+    // state-filtered traversal via Iterator
+    std::cout << "\nPRODUCTIONS CURRENTLY RELEASED" << std::endl;
+
+    Iterator *Released = starWars->createIterator("Released");
+    if (Released != nullptr) {
+        for (Released->first(); !Released->isDone(); Released->next()) {
+            std::cout << " - " << Released->currentItem()->getName()
+                      << " (" << Released->currentItem()->getProgress() << ")" << std::endl;
+        }
+        std::cout << std::endl;
+        delete Released;
+    }
 
     // developmen costs
     std::cout << std::fixed << std::setprecision(2);

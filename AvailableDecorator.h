@@ -24,6 +24,10 @@ public:
         component->display(indent);
     }
 
+    std::string getProgress() const override {    // Added for iterator class
+        return component->getProgress();
+    }
+
     virtual ~AvailableDecorator()
     {
         delete component;
