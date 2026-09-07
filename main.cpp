@@ -7,6 +7,7 @@
 #include "FullTraversalIterator.h"
 #include "AvailableDecorator.h"
 #include "PlatformDecorator.h"
+#include "TheatricalDecorator.h"
 
 int main()
 {
@@ -52,8 +53,8 @@ int main()
     // movies
     ProductionGroup *movies = new ProductionGroup("Movies");
 
-    movies->addChild(new Production("The Empire Strikes Back", "Lucasfilm", 18000000.0));
-    movies->addChild(new Production("The Force Awakens", "Lucasfilm", 245000000.0));
+    movies->addChild(new TheatricalDecorator(new Production("The Force Awakens", "Lucasfilm", 18000000.0), "Ster-Kinekor", "2D", 100));
+    movies->addChild(new TheatricalDecorator(new TheatricalDecorator(new TheatricalDecorator(new Production("The Empire Strikes Back", "Lucasfilm", 245000000.0), "The", "1D", 100), "Absolute", "2D", 200), "Theater", "3D", 300));
 
     // build tree
     starWars->addChild(tvSeries);
