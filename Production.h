@@ -19,7 +19,9 @@ private:
 
   ProductionState* state;
 public:
-  Production(const std::string &name, const std::string productionCompany, double developmentCost, int numberOfEpisodes = 0) : ProductionComponent(name), productionCompany(productionCompany), developmentCost(developmentCost), credits("Not set"), numberOfEpisodes(numberOfEpisodes) {}
+  Production(const std::string &name, const std::string productionCompany, double developmentCost, int numberOfEpisodes = 0) : ProductionComponent(name), productionCompany(productionCompany), developmentCost(developmentCost), credits("Not set"), numberOfEpisodes(numberOfEpisodes) {
+	  state = new PlanningState();
+  }
 
   void addCastMember(const std::string &person)
   {
