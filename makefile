@@ -6,4 +6,4 @@ run: all
 
 memory:
 	g++ -std=c++11 -Werror -Wall *.cpp -o taskforge
-	valgrind --leak-check=full ./taskforge
+	valgrind --leak-check=full --show-leak-kinds=all ./taskforge

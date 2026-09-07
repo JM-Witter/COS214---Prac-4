@@ -25,6 +25,10 @@ public:
   virtual void display(int n) const = 0;
 
   virtual Iterator *createIterator() {return nullptr;}; // Added for calling DecoratorIterator later
+
+  virtual std::string getProgress() const = 0; //Used to reach decorator objects in iterator
+
+  virtual Iterator *createIterator(const std::string &state) { return nullptr; }
 };
 
 #endif
