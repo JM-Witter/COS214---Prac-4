@@ -22,6 +22,15 @@ int main()
     Production *bobaFett = new Production("The Book of Boba Fett",  "Lucasfilm", 12000000.0, 7);
     Production *acolyte = new Production("The Acolyte",             "Lucasfilm", 10000000.0, 8);
 
+    mandalorian->updateProgress();
+    mandalorian->updateProgress();
+    mandalorian->updateProgress();
+
+    bobaFett->updateProgress();
+    bobaFett->updateProgress();
+
+    acolyte->updateProgress();
+
     // Added info for the Mandalorian
     mandalorian->addCastMember("Pedro Pascal");
     mandalorian->addCastMember("Giancarlo Esposito");

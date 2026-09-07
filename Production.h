@@ -41,7 +41,8 @@ public:
   void display(int depth) const
   {
     std::string indent(depth * 2, ' ');
-    std::cout << indent << "> " << name << std::endl;
+
+    std::cout << indent << "> " << name << " (" << getProgress() << ")" << std::endl;
   }
 
   void setState(ProductionState* ps) {
@@ -55,7 +56,7 @@ public:
   	}
   }
   
-  std::string getProgress() {
+  std::string getProgress() const {
   	if (state) {
   		return state->getState();
   	} else {
