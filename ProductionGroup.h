@@ -59,12 +59,12 @@ public:
     std::vector<ProductionComponent *>::const_iterator it;
 
     std::string indent(depth * 2, ' ');
-    std::cout << indent << "[ProductionGroup[]: " << name << std::endl;
+    std::cout << indent << name << ": " << std::endl;
     for (it = children.begin(); it != children.end(); ++it)
     {
       (*it)->display(depth + 1);
     }
-    std::cout << indent << "]" << std::endl;
+    // std::cout << indent << "]" << std::endl;
   }
 
   Iterator *createIterator() override; //method to call FullTraversalIterator

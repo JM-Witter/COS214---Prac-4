@@ -29,7 +29,7 @@ public:
             std::cout << "  ";
         }
         
-        std::cout << " Available on: " << platformName << " (" << details << ") - Price: R" << cost << std::endl;
+        std::cout << "  - Available on: " << platformName << " (" << details << ") - Price: R" << cost << std::endl;
     }
 };
 

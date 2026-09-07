@@ -41,7 +41,7 @@ public:
   void display(int depth) const
   {
     std::string indent(depth * 2, ' ');
-    std::cout << indent << "[Production[]: " << name << std::endl;
+    std::cout << indent << "> " << name << std::endl;
   }
 
   void setState(ProductionState* ps) {
