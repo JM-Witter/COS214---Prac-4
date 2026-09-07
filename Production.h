@@ -2,8 +2,11 @@
 #define PRODUCTION_H
 
 #include "ProductionComponent.h"
+#include "ProductionState.h"
+#include "PlanningState.h"
 #include <vector>
 #include <iostream>
+#include <string>
 
 class Production : public ProductionComponent
 {
@@ -14,6 +17,7 @@ private:
   std::string credits;
   int numberOfEpisodes;
 
+  ProductionState* state;
 public:
   Production(const std::string &name, const std::string productionCompany, double developmentCost, int numberOfEpisodes = 0) : ProductionComponent(name), productionCompany(productionCompany), developmentCost(developmentCost), credits("Not set"), numberOfEpisodes(numberOfEpisodes) {}
 
@@ -38,7 +42,28 @@ public:
     std::cout << indent << "[Production[]: " << name << std::endl;
   }
 
-  ~Production() {}
+  void setState(ProductionState* ps) {
+	  delete state;
+	  state = ps;
+  }
+  
+  void updateProgress() {
+  	if (state) {
+  		state->nextState(this);
+  	}
+  }
+  
+  std::string getProgress() {
+  	if (state) {
+  		return state->getState();
+  	} else {
+  		return "Unknown State";
+  	}
+  }
+
+  ~Production() {
+	  delete state;
+  }
 };
 
 #endif
