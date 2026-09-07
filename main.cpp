@@ -1,4 +1,5 @@
 #include <iostream>
+#include <iomanip>
 
 #include "Production.h"
 #include "ProductionGroup.h"
@@ -75,7 +76,7 @@ int main()
     delete it;
 
     // developmen costs
-    std::cout << std::fixed;
+    std::cout << std::fixed << std::setprecision(2);
 
     std::cout << "DEVELOPMENT COSTS" << std::endl;
 
