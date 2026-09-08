@@ -50,6 +50,8 @@ int main()
     tvSeries->addChild(bobaFettFilm);
     tvSeries->addChild(acolyteFilm);
 
+    // delete acolyteFilm; // testing error
+
     // animated series, inside tv series
     ProductionGroup *animatedSeries = new ProductionGroup("Animated TV Series");
 
